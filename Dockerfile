@@ -32,6 +32,10 @@ RUN  tar xzf /tmp/phobius101_linux.tar.gz -C /usr/local/interproscan-${IPSCAN_VE
 
 COPY interproscan.properties /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 
+RUN ln -s /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interproscan
+
+VOLUME /nfs/db
+
 # Clean cache
 RUN apt-get clean
 RUN set -x; rm -rf /var/lib/apt/lists/*
