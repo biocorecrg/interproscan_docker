@@ -4,6 +4,7 @@ FROM biocorecrg/debian-perlbrew-pyenv3-java:stretch
 MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu> 
 
 ARG IPSCAN_VERSION=5.31-70.0
+ARG IPSCAN_DATA=/nfs/db/iprscan/data
 
 # Install InterPro
 
@@ -34,7 +35,9 @@ COPY interproscan.properties /usr/local/interproscan-${IPSCAN_VERSION}/interpros
 
 RUN ln -s /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interproscan
 
-VOLUME /nfs/db
+# Hardcoded Data
+VOLUME ${IPSCAN_DATA}
+RUN cd /usr/local/interproscan; rm -rf data; ln -s ${IPSCAN_DATA} data
 
 # Clean cache
 RUN apt-get clean
