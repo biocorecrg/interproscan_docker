@@ -35,6 +35,9 @@ From: biocorecrg/debian-perlbrew-pyenv3-java:stretch
 	
 	# Hardcoded Data
 	cd /usr/local/interproscan; rm -rf data; ln -s ${IPSCAN_DATA} data
+	chmod -R a+rx /usr/local/interproscan/bin
+	cd /usr/local/bin; ln -s /usr/local/interproscan/interproscan.sh
+
 
 %files
 
