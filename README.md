@@ -6,5 +6,5 @@ Docker recipe for building Interproscan
 
 Building Singularity:
 
-    sudo /usr/local/bin/singularity build iprscan-5.31.70.simg Singularity
+    sudo /usr/local/bin/singularity build iprscan-5.32.71.simg Singularity
 
