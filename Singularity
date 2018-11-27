@@ -6,7 +6,7 @@ From: biocorecrg/debian-perlbrew-pyenv3-java:stretch
 
 %post
 	
-	IPSCAN_VERSION=5.31-70.0
+	IPSCAN_VERSION=5.32-71.0
 	IPSCAN_DATA=/nfs/db/iprscan/data
 	
 	# Install InterPro
