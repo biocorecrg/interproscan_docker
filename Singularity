@@ -38,6 +38,8 @@ From: biocorecrg/debian-perlbrew-pyenv3-java:stretch
 	chmod -R a+rx /usr/local/interproscan/bin
 	cd /usr/local/bin; ln -s /usr/local/interproscan/interproscan.sh
 
+	# Extra library
+	apt-get update; apt-get install -y libdw1; apt-get clean; rm -rf /var/lib/apt/lists/*
 
 %files
 

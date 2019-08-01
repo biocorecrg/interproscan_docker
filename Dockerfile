@@ -39,6 +39,9 @@ RUN ln -s /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interproscan
 VOLUME ${IPSCAN_DATA}
 RUN cd /usr/local/interproscan; rm -rf data; ln -s ${IPSCAN_DATA} data
 
+# Extra packages
+RUN apt-get update; apt-get install -y libdw1
+
 # Clean cache
 RUN apt-get clean
 RUN set -x; rm -rf /var/lib/apt/lists/*
