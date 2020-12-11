@@ -8,11 +8,11 @@ ARG IPSCAN_DATA=/nfs/db/iprscan/5.48-83.0
 
 # Install InterPro
 
-RUN cd /usr/local; curl --fail --silent --show-error --location --remote-name ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/${IPSCAN_VERSION}/alt/interproscan-core-${IPSCAN_VERSION}.tar.gz && \
-	curl --fail --silent --show-error --location --remote-name ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/${IPSCAN_VERSION}/alt/interproscan-core-${IPSCAN_VERSION}.tar.gz.md5 && \
-	md5sum -c interproscan-core-${IPSCAN_VERSION}.tar.gz.md5
+RUN cd /usr/local; curl --fail --silent --show-error --location --remote-name ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/${IPSCAN_VERSION}/interproscan-${IPSCAN_VERSION}.tar.gz && \
+	curl --fail --silent --show-error --location --remote-name ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/${IPSCAN_VERSION}/interproscan-${IPSCAN_VERSION}.tar.gz.md5 && \
+	md5sum -c interproscan-${IPSCAN_VERSION}.tar.gz.md5
 
-RUN cd /usr/local; tar zxf interproscan-core-${IPSCAN_VERSION}.tar.gz && rm interproscan-core-${IPSCAN_VERSION}.tar.gz interproscan-core-${IPSCAN_VERSION}.tar.gz.md5
+RUN cd /usr/local; tar zxf interproscan-${IPSCAN_VERSION}.tar.gz && rm interproscan-${IPSCAN_VERSION}.tar.gz interproscan-${IPSCAN_VERSION}.tar.gz.md5
 
 ENV PATH "/usr/local/interproscan-${IPSCAN_VERSION}:${PATH}"
 
