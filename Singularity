@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: biocorecrg/debian-perlbrew-pyenv3-java:stretch
+From: biocorecrg/debian-perlbrew-pyenv3-java:buster
 
 %runscript
     echo "Welcome to BiocoreCRG Interproscan Image"
@@ -21,17 +21,17 @@ From: biocorecrg/debian-perlbrew-pyenv3-java:stretch
 	
 	# Copy extra binaries. They might be downloaded from an URL in the future
 	
-	tar zxf /tmp/signalp-4.1b.Linux.tar.Z -C /usr/local/interproscan-${IPSCAN_VERSION}/bin/signalp/4.1 --strip-components 1
+	tar zxf /usr/local/signalp-4.1b.Linux.tar.Z -C /usr/local/interproscan-${IPSCAN_VERSION}/bin/signalp/4.1 --strip-components 1
 	
-	tar zxf /tmp/tmhmm-2.0c.Linux.tar.gz -C /tmp && \
-		 cp /tmp/tmhmm-2.0c/bin/decodeanhmm.Linux_x86_64 /usr/local/interproscan-${IPSCAN_VERSION}/bin/tmhmm/2.0c/decodeanhmm
+	tar zxf /usr/local/tmhmm-2.0c.Linux.tar.gz -C /usr/local && \
+		 cp /usr/local/tmhmm-2.0c/bin/decodeanhmm.Linux_x86_64 /usr/local/interproscan-${IPSCAN_VERSION}/bin/tmhmm/2.0c/decodeanhmm
 	
-	tar xzf /tmp/phobius101_linux.tar.gz -C /usr/local/interproscan-${IPSCAN_VERSION}/bin/phobius/1.01 --strip-components 3
+	tar xzf /usr/local/phobius101_linux.tar.gz -C /usr/local/interproscan-${IPSCAN_VERSION}/bin/phobius/1.01 --strip-components 3
 	
 	# Replace interproscan.properties
 	
 	ln -s /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interproscan
-	cp /tmp/interproscan.properties /usr/local/interproscan
+	cp /usr/local/interproscan.properties /usr/local/interproscan
 	
 	# Hardcoded Data
 	cd /usr/local/interproscan; rm -rf data; ln -s ${IPSCAN_DATA} data
@@ -43,10 +43,10 @@ From: biocorecrg/debian-perlbrew-pyenv3-java:stretch
 
 %files
 
-	external/signalp-4.1b.Linux.tar.Z /tmp/
-	external/tmhmm-2.0c.Linux.tar.gz /tmp/
-	external/phobius101_linux.tar.gz /tmp/
-	interproscan.properties /tmp/
+	external/signalp-4.1b.Linux.tar.Z /usr/local/
+	external/tmhmm-2.0c.Linux.tar.gz /usr/local/
+	external/phobius101_linux.tar.gz /usr/local/
+	interproscan.properties /usr/local/
 
 
 %labels
