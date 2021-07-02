@@ -3,9 +3,9 @@
 Docker recipe for building Interproscan
 
 * External programs must be obtained by academic permissions. 
-    * [SignalP](http://www.cbs.dtu.dk/services/SignalP/)
-    * [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/)
-    * [Phobious](https://phobius.sbc.su.se/)
+    * [SignalP](http://www.cbs.dtu.dk/services/SignalP/) ```signalp-4.1b.Linux.tar.Z```
+    * [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/) ```tmhmm-2.0c.Linux.tar.gz```
+    * [Phobious](https://phobius.sbc.su.se/) ```phobius101_linux.tar.gz```
         * Regarding phobius: https://www.biostars.org/p/238642/
     * Some modifications are also needed in those programs in advance, e. g., replacing ```/usr/bin/perl``` for ```/usr/bin/env perl```
     
