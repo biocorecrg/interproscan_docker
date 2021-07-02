@@ -9,7 +9,7 @@ Docker recipe for building Interproscan
         * Regarding phobius: https://www.biostars.org/p/238642/
     * Some modifications are also needed in those programs in advance, e. g., replacing ```/usr/bin/perl``` for ```/usr/bin/env perl```
     
-IMPORTANT: **IPSCAN_DATA** build argument in the recipes must be adapted to fit the configuration of your HPC storage setup.
+IMPORTANT: **IPSCAN_DATA** build argument in the recipes must be adapted to fit the configuration of your HPC storage setup. A user with suitable permissions may need to run it for first time to index IPSCAN_DATA dataset. Details here: https://interproscan-docs.readthedocs.io/en/5.48-83.0/HowToRun.html
 
 Last software versions of Interproscan include the whole data by default. We remove it from this container and we place it independently in a separate location pointed above. Care must be taken to place data in the desired location.
 
