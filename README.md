@@ -20,7 +20,9 @@ Building with Singularity:
     sudo singularity build iprscan-5.48-83.0.sif Singularity
     # Without privative software
     sudo singularity build iprscan-5.48-83.0.open.sif Singularity.open
-    
+
+You can avoid using ```sudo``` with ```--fakeroot``` Singularity build option.
+
 
 ## NOTES
 
