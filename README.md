@@ -1,5 +1,7 @@
 # interproscan_docker
 
+[![DOI](https://zenodo.org/badge/150708687.svg)](https://zenodo.org/badge/latestdoi/150708687)
+
 Container recipes for building [Interproscan](https://interproscan-docs.readthedocs.io). Both [Docker](https://www.docker.com/) and [Singularity](https://singularity.hpcng.org/) versions are provided (the latter recomended).
 
 * If you want to use Interproscan external privative software, these programs must be obtained first with granted academic permissions. 
