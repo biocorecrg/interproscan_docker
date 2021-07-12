@@ -24,6 +24,7 @@ Building with Singularity:
 
 You can avoid using ```sudo``` with ```--fakeroot``` Singularity build option.
 
+* [Pregenerated open images](https://biocore.crg.eu/iprscan/)
 
 ## NOTES
 
