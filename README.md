@@ -17,7 +17,7 @@ It is important to ensure that program and data versions match and that this is 
 
 ## Pregenerated images
 
-Only open version and mounted in default data location ```nfs/db/iprscan/xxx```
+*Only open version and mounted in default data location ```/nfs/db/iprscan/xxx```*
 
 * [Singularity](https://biocore.crg.eu/iprscan/)
 * [Docker](https://hub.docker.com/r/biocorecrg/interproscan)
