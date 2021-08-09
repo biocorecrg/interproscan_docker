@@ -15,6 +15,13 @@ Last software package versions of Interproscan include the whole data by default
 
 It is important to ensure that program and data versions match and that this is adequately reflected in ```interproscan.properties``` or ```interproscan.open.properties``` files. Otherwise Interproscan is not likely to work.
 
+## Pregenerated images
+
+Only open version and mounted in default data location ```nfs/db/iprscan/xxx```
+
+* [Singularity](https://biocore.crg.eu/iprscan/)
+* [Docker](https://hub.docker.com/r/biocorecrg/interproscan)
+
 ## Building from Docker recipes
 
     # With privative software
@@ -34,8 +41,6 @@ It is important to ensure that program and data versions match and that this is 
     sudo singularity build iprscan-5.48-83.0.open.sif Singularity.open
 
 You can avoid using ```sudo``` with ```--fakeroot``` Singularity build option.
-
-* [Pregenerated open images](https://biocore.crg.eu/iprscan/)
 
 ## NOTES
 
