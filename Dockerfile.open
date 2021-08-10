@@ -19,6 +19,7 @@ ENV PATH "/usr/local/interproscan-${IPSCAN_VERSION}:${PATH}"
 # Replace interproscan.properties
 
 COPY interproscan.open.properties /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
+RUN chmod a+r /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 
 RUN ln -s /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interproscan
 
