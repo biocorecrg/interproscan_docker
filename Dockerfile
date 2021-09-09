@@ -3,8 +3,8 @@ FROM biocorecrg/debian-perlbrew-pyenv3-java:buster
 # File Author / Maintainer
 MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu> 
 
-ARG IPSCAN_VERSION=5.48-83.0
-ARG IPSCAN_DATA=/nfs/db/iprscan/5.48-83.0
+ARG IPSCAN_VERSION=5.47-82.0
+ARG IPSCAN_DATA=/nfs/db/iprscan/5.47-82.0
 
 # Install InterPro
 

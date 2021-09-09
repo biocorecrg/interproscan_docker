@@ -6,8 +6,8 @@ From: biocorecrg/debian-perlbrew-pyenv3-java:buster
 
 %post
 	
-	IPSCAN_VERSION=5.48-83.0
-	IPSCAN_DATA=/nfs/db/iprscan/5.48-83.0
+	IPSCAN_VERSION=5.47-82.0
+	IPSCAN_DATA=/nfs/db/iprscan/5.47-82.0
 	
 	# Install InterPro
 	
