@@ -1,10 +1,6 @@
-FROM biocorecrg/debian-perlbrew-pyenv3-java:buster
-
-# File Author / Maintainer
-MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu> 
+FROM biocorecrg/debian-perlbrew-pyenv3-java:buster AS builder
 
 ARG IPSCAN_VERSION=5.48-83.0
-ARG IPSCAN_DATA=/nfs/db/iprscan/5.48-83.0
 
 # Install InterPro
 
@@ -14,18 +10,24 @@ RUN cd /usr/local; curl --retry 3 --fail --silent --show-error --location --remo
 
 RUN cd /usr/local; tar zxf interproscan-${IPSCAN_VERSION}-64-bit.tar.gz --exclude "interproscan-${IPSCAN_VERSION}/data" && rm interproscan-${IPSCAN_VERSION}-64-bit.tar.gz interproscan-${IPSCAN_VERSION}-64-bit.tar.gz.md5
 
-ENV PATH "/usr/local/interproscan-${IPSCAN_VERSION}:${PATH}"
-
 # Replace interproscan.properties
-
 COPY interproscan.open.properties /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 RUN chmod a+r /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 
-RUN ln -s /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interproscan
+RUN cd /usr/local/interproscan-${IPSCAN_VERSION}; rm -rf data
 
-# Hardcoded Data
-VOLUME ${IPSCAN_DATA}
-RUN cd /usr/local/interproscan; rm -rf data; ln -s ${IPSCAN_DATA} data
+FROM biocorecrg/debian-perlbrew-pyenv3-java:buster
+
+# File Author / Maintainer
+MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu> 
+
+ARG IPSCAN_VERSION=5.48-83.0
+
+ENV PATH "/usr/local/interproscan:${PATH}"
+
+COPY --from=builder /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interproscan
+
+WORKDIR /usr/local/interproscan
 
 # Extra packages
 RUN apt-get update; apt-get install -y libdw1
