@@ -47,7 +47,7 @@ For running the container images, it is mandatory to mount a data directory that
 docker run --volume /path/to/data:/usr/local/interproscan/data --volume /path/to/scratch:/scratch -t biocorecrg/interproscan:5.48-83.0 /usr/local/interproscan/interproscan.sh -i /scratch/test.fa --goterms --iprlookup --pathways -o /scratch/out_interpro -f TSV
 
 # Singularity
-singularity exec -e iprscan-5.47-82.0.open.sif /usr/local/interproscan/interproscan.sh -i /path/to/test2.fa --goterms --iprlookup --pathways -o /path/to/out_interpro -f TSV
+singularity exec -e iprscan-5.48-83.0.open.sif /usr/local/interproscan/interproscan.sh -i /path/to/test2.fa --goterms --iprlookup --pathways -o /path/to/out_interpro -f TSV
 ```
 
 ## NOTES
