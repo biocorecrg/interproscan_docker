@@ -13,6 +13,7 @@ RUN cd /usr/local; tar zxf interproscan-${IPSCAN_VERSION}-64-bit.tar.gz --exclud
 # Replace interproscan.properties
 COPY interproscan.properties /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 RUN chmod a+r /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
+RUN chmod -R a+rx /usr/local/interproscan-${IPSCAN_VERSION}/bin/* 
 
 RUN cd /usr/local/interproscan-${IPSCAN_VERSION}; rm -rf data
 
@@ -30,7 +31,8 @@ COPY --from=builder /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interpr
 WORKDIR /usr/local/interproscan
 
 # Extra packages
-RUN apt-get update; apt-get install -y libdw1
+RUN apt-get update; apt-get install -y libdw1 libpcre3
+RUN cd /lib/x86_64-linux-gnu; ln -s libpcre.so.3 libpcre.so
 
 # Clean cache
 RUN apt-get clean
