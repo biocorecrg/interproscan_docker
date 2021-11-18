@@ -6,7 +6,7 @@ From: biocorecrg/debian-perlbrew-pyenv3-java:buster
 
 %post
 
-	IPSCAN_VERSION=5.48-83.0
+	IPSCAN_VERSION=5.52-86.0
 
 	# Install InterPro
 
