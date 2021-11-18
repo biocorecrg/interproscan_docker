@@ -11,7 +11,7 @@ RUN cd /usr/local; curl --retry 3 --fail --silent --show-error --location --remo
 RUN cd /usr/local; tar zxf interproscan-${IPSCAN_VERSION}-64-bit.tar.gz --exclude "interproscan-${IPSCAN_VERSION}/data" && rm interproscan-${IPSCAN_VERSION}-64-bit.tar.gz interproscan-${IPSCAN_VERSION}-64-bit.tar.gz.md5
 
 # Replace interproscan.properties
-COPY interproscan.open.properties /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
+COPY interproscan.properties /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 RUN chmod a+r /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 
 # Copy external software
@@ -25,6 +25,8 @@ RUN  tar zxf /tmp/tmhmm-2.0c.Linux.tar.gz -C /tmp && \
 
 COPY external/phobius101_linux.tar.gz /tmp/
 RUN  tar xzf /tmp/phobius101_linux.tar.gz -C /usr/local/interproscan-${IPSCAN_VERSION}/bin/phobius/1.01 --strip-components 3
+
+RUN chmod -R a+rx /usr/local/interproscan-${IPSCAN_VERSION}/bin/* 
 
 RUN cd /usr/local/interproscan-${IPSCAN_VERSION}; rm -rf data
 
@@ -42,7 +44,8 @@ COPY --from=builder /usr/local/interproscan-${IPSCAN_VERSION} /usr/local/interpr
 WORKDIR /usr/local/interproscan
 
 # Extra packages
-RUN apt-get update; apt-get install -y libdw1
+RUN apt-get update; apt-get install -y libdw1 libpcre3
+RUN cd /lib/x86_64-linux-gnu; ln -s libpcre.so.3 libpcre.so
 
 # Clean cache
 RUN apt-get clean

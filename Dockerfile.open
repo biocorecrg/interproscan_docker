@@ -11,7 +11,7 @@ RUN cd /usr/local; curl --retry 3 --fail --silent --show-error --location --remo
 RUN cd /usr/local; tar zxf interproscan-${IPSCAN_VERSION}-64-bit.tar.gz --exclude "interproscan-${IPSCAN_VERSION}/data" && rm interproscan-${IPSCAN_VERSION}-64-bit.tar.gz interproscan-${IPSCAN_VERSION}-64-bit.tar.gz.md5
 
 # Replace interproscan.properties
-COPY interproscan.open.properties /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
+COPY interproscan.properties /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 RUN chmod a+r /usr/local/interproscan-${IPSCAN_VERSION}/interproscan.properties
 
 RUN cd /usr/local/interproscan-${IPSCAN_VERSION}; rm -rf data
