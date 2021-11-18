@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/150708687.svg)](https://zenodo.org/badge/latestdoi/150708687)
 
-Container recipes for building [Interproscan](https://interproscan-docs.readthedocs.io). Both [Docker](https://www.docker.com/) and [Singularity](https://singularity.hpcng.org/) versions are provided (the latter recomended).
+Container recipes for building [Interproscan](https://interproscan-docs.readthedocs.io) (for [Docker](https://www.docker.com/) and [Singularity](https://singularity.hpcng.org/)).
 
 * If you want to use Interproscan external privative software, these programs must be obtained first with granted academic permissions.
     * [SignalP](http://www.cbs.dtu.dk/services/SignalP/) ```signalp-4.1b.Linux.tar.Z```
@@ -28,13 +28,6 @@ It is important to ensure that program and data versions match and that this is 
     # Without privative software
     docker build -t iprscan-open:5.52-86.0 -f Dockerfile.open .
     sudo singularity build iprscan-5.52-86.0.open.sif docker-daemon://iprscan-open:5.52-86.0
-
-## Building from Singularity recipes
-
-    # With privative software
-    sudo singularity build iprscan-5.52-86.0.sif Singularity
-    # Without privative software
-    sudo singularity build iprscan-5.52-86.0.open.sif Singularity.open
 
 You can avoid using ```sudo``` with ```--fakeroot``` Singularity build option.
 
