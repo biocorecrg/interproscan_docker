@@ -23,11 +23,11 @@ It is important to ensure that program and data versions match and that this is 
 ## Building from Docker recipes
 
     # With privative software
-    docker build -t iprscan:5.52-86.0 -f Dockerfile .
-    sudo singularity build iprscan-5.52-86.0.sif docker-daemon://iprscan:5.52-86.0
+    docker build -t iprscan:5.54-87.0 -f Dockerfile .
+    sudo singularity build iprscan-5.54-87.0.sif docker-daemon://iprscan:5.54-87.0
     # Without privative software
-    docker build -t iprscan-open:5.52-86.0 -f Dockerfile.open .
-    sudo singularity build iprscan-5.52-86.0.open.sif docker-daemon://iprscan-open:5.52-86.0
+    docker build -t iprscan-open:5.54-87.0 -f Dockerfile.open .
+    sudo singularity build iprscan-5.54-87.0.open.sif docker-daemon://iprscan-open:5.54-87.0
 
 You can avoid using ```sudo``` with ```--fakeroot``` Singularity build option.
 
@@ -37,13 +37,13 @@ For running the container images, it is mandatory to mount a data directory that
 
 ```
 # Docker
-docker run --volume /path/to/data:/usr/local/interproscan/data --volume /path/to/scratch:/scratch -t biocorecrg/interproscan:5.52-86.0 /usr/local/interproscan/interproscan.sh -i /scratch/test.fa --goterms --iprlookup --pathways -o /scratch/out_interpro -f TSV
+docker run --volume /path/to/data:/usr/local/interproscan/data --volume /path/to/scratch:/scratch -t biocorecrg/interproscan:5.54-87.0 /usr/local/interproscan/interproscan.sh -i /scratch/test.fa --goterms --iprlookup --pathways -o /scratch/out_interpro -f TSV
 
 # Singularity
-singularity exec -B /path/to/data:/usr/local/interproscan/data -e iprscan-5.52-86.0.open.sif /usr/local/interproscan/interproscan.sh -i /path/to/test2.fa --goterms --iprlookup --pathways -o /path/to/out_interpro -f TSV
+singularity exec -B /path/to/data:/usr/local/interproscan/data -e iprscan-5.54-87.0.open.sif /usr/local/interproscan/interproscan.sh -i /path/to/test2.fa --goterms --iprlookup --pathways -o /path/to/out_interpro -f TSV
 ```
 
 ## NOTES
 
-* Moreover, keep into account that a user with suitable permissions may need first to index ```/usr/local/interproscan/data``` directory (e.g., with ```python3 /usr/local/interproscan/initial_setup.py```). You can use the very container images. Details here: https://interproscan-docs.readthedocs.io/en/5.52-86.0/HowToRun.html
+* Moreover, keep into account that a user with suitable permissions may need first to index ```/usr/local/interproscan/data``` directory (e.g., with ```python3 /usr/local/interproscan/initial_setup.py```). You can use the very container images. Details here: https://interproscan-docs.readthedocs.io/en/5.54-87.0/HowToRun.html
 * Depending on your setup, you may need to change ```SINGULARITY_TMPDIR``` (and ```SINGULARITY_CACHEDIR```) environment variables for pointing to a location with enough space. More details at: https://singularity.hpcng.org/admin-docs/master/installation.html
