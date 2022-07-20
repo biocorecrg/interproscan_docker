@@ -45,5 +45,5 @@ singularity exec -B /path/to/data:/usr/local/interproscan/data -e iprscan-5.56-8
 
 ## NOTES
 
-* Moreover, keep into account that a user with suitable permissions may need first to index ```/usr/local/interproscan/data``` directory (e.g., with ```python3 /usr/local/interproscan/initial_setup.py```). You can use the very container images. Details here: https://interproscan-docs.readthedocs.io/en/5.56-89.0/HowToRun.html
+* Moreover, keep into account that a user with suitable permissions may need first to index ```/usr/local/interproscan/data``` directory (e.g., with ```python3 /usr/local/interproscan/initial_setup.py```). You can use the very container images. Details here: https://interproscan-docs.readthedocs.io/en/latest/HowToRun.html
 * Depending on your setup, you may need to change ```SINGULARITY_TMPDIR``` (and ```SINGULARITY_CACHEDIR```) environment variables for pointing to a location with enough space. More details at: https://singularity.hpcng.org/admin-docs/master/installation.html
