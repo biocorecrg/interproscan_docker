@@ -1,6 +1,6 @@
 FROM biocorecrg/debian-perlbrew-pyenv3-java:buster AS builder
 
-ARG IPSCAN_VERSION=5.56-89.0
+ARG IPSCAN_VERSION=5.65-97.0
 
 # Install InterPro
 
@@ -32,10 +32,7 @@ RUN cd /usr/local/interproscan-${IPSCAN_VERSION}; rm -rf data
 
 FROM biocorecrg/debian-perlbrew-pyenv3-java:buster
 
-# File Author / Maintainer
-MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
-
-ARG IPSCAN_VERSION=5.56-89.0
+ARG IPSCAN_VERSION=5.65-97.0
 
 ENV PATH "/usr/local/interproscan:${PATH}"
 
